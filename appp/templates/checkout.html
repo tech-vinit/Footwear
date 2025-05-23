@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row checkout-container">
+        <!-- Billing Details -->
+        <div class="col-md-6 m-auto ">
+            <h4 class="section-title">Billing Address</h4>
+            <form action='' method='POST'>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="full_name">
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label for="countryCode" class="form-label">Code</label>
+                        <input type="text" class="form-control" id="countryCode" value="+91">
+                    </div>
+                    <div class="col-8">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" id="mobile" maxlength="10" name="phone">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="2" name="address" ></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city">
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" name="state">
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" name="country">
+                </div>
+                <div class="mb-3">
+                    <label for="zip" class="form-label">ZIP Code</label>
+                    <input type="text" class="form-control" id="zip" name="pincode">
+                </div>
+                <button type="submit" class="btn btn-submit">Save Address</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+

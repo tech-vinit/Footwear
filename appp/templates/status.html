@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content  %}
+
+<section>
+    <div class="status">
+        
+<div class="container py-5">
+    
+  <div class="status-container mx-auto" style="max-width: 800px;">
+    <p><span><a href="{% url 'home'%}" style='color:#88C8BC;'>Home</a></span>{{request.path}}</p>
+    <h2 class="text-center mb-4">Order Status</h2>
+    <p class="text-center text-muted">Order #1234567890</p>
+
+    <div class="d-flex justify-content-between flex-wrap gap-3 mt-5">
+      <div class="step active">
+        <div class="circle">1</div>
+        <p>Ordered</p>
+      </div>
+      <div class="step active">
+        <div class="circle">2</div>
+        <p>Packed</p>
+      </div>
+      <div class="step">
+        <div class="circle">3</div>
+        <p>Shipped</p>
+      </div>
+      <div class="step">
+        <div class="circle">4</div>
+        <p>Out for Delivery</p>
+      </div>
+      <div class="step">
+        <div class="circle">5</div>
+        <p>Delivered</p>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+
+
+
+{% endblock content %}
+
+
+
+

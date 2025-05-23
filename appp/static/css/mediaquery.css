@@ -1,0 +1,52 @@
+@media (max-width: 480px) {
+  .banner-content{
+    left:23%;
+    
+  }
+  .mens-content{
+    top: 14%;
+    left: 31%;
+   }
+   .womens-content {
+    top: 60%;
+    right: 33%;
+   }
+   .men-banner-content{
+    top: 35%;
+    left: 20%;
+   }
+   .women-banner-content{
+    top: 35%;
+    left: 20%;
+   }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .banner-content{
+    left:30%;
+    
+  } 
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .mens-content{
+    top: 14%;
+    left: 31%;
+   }
+   .womens-content {
+    top: 70%;
+    right: 33%;
+   }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .mens-content{
+    top: 35%;
+    left: 5%;
+   }
+   .womens-content {
+    top: 35%;
+    left: 65%;
+   }
+}

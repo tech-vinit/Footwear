@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section>
+    <div class="contact-section">
+        <div class="container">
+            
+            <div class="contact p-5">
+                <p><span><a href="{% url 'home'%}" style='color:#88C8BC;'>Home</a></span>{{request.path}}</p>
+                <h1>Contact Information</h1>
+                <div class="row">
+                    <div class="col">
+                        <div class="address">
+                            <p> <i class="fa-solid fa-location-dot m-2 fs-4"></i>198 West 21th Street,Suite 721 New York NY 10016</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="call">
+                               <p><i class="fa-solid fa-phone m-2 fs-4"></i> + 1235 2355 98</p>
+                       </div>
+                    </div>
+                    <div class="col">
+                          <div class="telegram"> 
+                            <p><i class="fa-brands fa-telegram m-2 fs-4"></i> info@yoursite.com</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="telegram"> 
+                            <p><i class="fa-solid fa-globe m-2 fs-4"></i>yoursite.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 gy-5">
+                    <div class="contact-form p-5" style='background-color:#F5F5F5;'>
+                    <div class="contact-form-content">
+                      <form action="">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="">First Name</label>
+                                <input type="text" placeholder='Your First Name' required class='form-control   '>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="">Last Name</label>
+                                <input type="text" placeholder='Your Last Name' class='form-control'>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <label for="">Email</label>
+                                <input type="email" placeholder='Your Email Address' class='d-block form-control'>
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="">Subject</label>
+                                <input type="text" placeholder='Your Subject Of This Message' class='d-block form-control'>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="">Message</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px">
+                                </textarea>  
+                                <button type='submit'>Send Message</button>  
+                            </div>
+                        </div>
+                     </form>
+                    </div>
+                </div>
+                
+               </div>
+               <div class="col-lg-6 gy-5">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.589899635322!2d76.05053907224267!3d22.967857547948018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963179b47845d21%3A0x3c484352310d1dfd!2sProjection%20(Training%20%26%20Placement%20Company)!5e0!3m2!1sen!2sin!4v1746933762970!5m2!1sen!2sin" width="600" height="775" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container ">
+    <div class="my-3 d-flex justify-content-between">
+        <a href="{% url 'home' %}" class='btn btn-secondary'>Back To Home</a>
+        {% for i in data %}
+           <a href="{% url 'edit_profile' i.id %}" class='btn btn-secondary'><i class="me-2 fa-solid fa-pencil"></i>Edit</a>
+        {% endfor %}
+    </div>
+        <div class="address-form">
+            <h2 class="text-center">Shipping Address</h2>
+            <form method="post" action='{% url 'profile'%}'>
+                {% csrf_token %}
+                
+
+                <div class="mb-3">
+                    <label for="full_name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="full_name"  required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address_line" class="form-label">Address Line</label>
+                    <textarea class="form-control" id="address_line" name="address" rows="3" required></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" name="city" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="pincode" class="form-label">Pincode</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type='text' class="form-control" id="country" name="country" required>
+                       
+                </div>
+
+                <!-- Mobile Number 1 -->
+                <div class="row mb-3">
+                    
+                    <div class="col-md-12">
+                        <label for="phone1" class="form-label">Mobile Number</label>
+                        <input type="tel" class="form-control" id="phone1" name="phone1" required>
+                    </div>
+                </div>
+
+                <!-- Mobile Number 2 -->
+                <div class="row mb-3">
+                    
+                    <div class="col-md-12">
+                        <label for="phone2" class="form-label">Alternate Mobile Number</label>
+                        <input type="tel" class="form-control" id="phone2" name="phone2">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Save Address</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+

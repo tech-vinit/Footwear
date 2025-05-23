@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <div class="men">
+         <h2 class='text-center bg-secondary-subtle p-3 fw-bold my-3' style='border-radius:20px'>Men's Casual Shoes</h2>
+        <div class="container p-5">
+            <p><span><a href="{% url 'home'%}" style='color:#88C8BC;'>Home</a></span>{{request.path}}</p>
+            <div class="men-shoes-categories" style=''>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card  text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/men-casual.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body mens-btn">
+                                <h3 class="card-title fw-bold">CASUAL</h3>
+                                <a href="{% url 'mencasual'%}" class="btn men-categories-btn " >Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/men-formal.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body mens-btn">
+                                <h3 class="card-title fw-bold">FORMAL</h3>
+                                <a href="{% url 'menformal'%}" class="btn " >Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/card-image6.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body mens-btn">
+                                <h3 class="card-title fw-bold">SPORTS</h3>
+                                <a href="{% url 'mensport'%}" class="btn " >Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            
+
+            <div class="row " style='margin:100px auto;'>
+                
+                    <div class="row g-5">
+                        {% for i in mc %}
+                        <div class="col-lg-3">
+                           <a href="{% url 'productdetail' i.id %}">
+                             <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style='height:15rem;'>
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                           
+                                             <p>${{i.discounted_price}}</p>
+                                            <p class='text-decoration-line-through'>${{i.selling_price}}</p>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                        {% endfor %}
+                                               
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+
+

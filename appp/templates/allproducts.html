@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="allproducts">
+            <h1 class='bg-secondary text-white fw-bold text-center my-5'>All Products</h1>
+            <div class="row gy-5">
+                    {% for i in allproducts %}
+                     <div class="col-lg-3">
+                            <a href="{% url 'productdetail' i.id %}">
+
+                                <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style="height:15rem;">
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                            <p>${{i.selling_price}}</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </a>
+                    </div>
+                    
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+

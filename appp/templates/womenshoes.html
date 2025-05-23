@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <div class="women">
+        <div class="womenshoes-banner ">
+                <div class="women-banner-content ">
+                    <h3 class='fw-bold'>Exclusive Offer </h3>
+                    <h1>40% off</h1>
+
+                </div>
+                <div class="women-banner-img" >
+                    <img src="/static/img/women-banner.jpg" alt="" class='img-fluid object-fit-cover' style='height:50vh; width:100%; margin: 10px 0 50px 0;'>
+                    
+                </div>
+            </div>
+            <h2 class='text-center bg-secondary-subtle p-3 fw-bold'>Categories</h2>
+        <div class="container p-5">
+            <p><span><a href="{% url 'home'%}" style='color:#88C8BC;'>Home</a></span>{{request.path}}</p>
+            <div class="women-shoes-categories" style=''>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card  text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/casual.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body womens-btn">
+                                <h3 class="card-title fw-bold">CASUAL</h3>
+                                <a href="{% url 'womencasual'%}" class="btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/women-formal.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body womens-btn">
+                                <h3 class="card-title fw-bold">FORMAL</h3>
+                                <a href="{% url 'womenformal'%}" class="btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card text-center text-secondary" style="width: 18rem; border-radius:50px;">
+                                <img src="/static/img/women-sport.jpg" class="card-img-top img-fluid object-fit-cover" alt="..." style='height:300px; width:100%;'>
+                            <div class="card-body womens-btn">
+                                <h3 class="card-title fw-bold">SPORTS</h3>
+                                <a href="{%url 'womensport'%}" class="btn " >Shop Now</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            
+
+            <div class="row " style='margin:100px auto;'>
+                <div class="col-lg-3">
+                    <div class="brand">
+                        <div class="card" style="width: 15rem;">
+                                <div class="card-body">
+                                        <h5 class="card-title">BRAND</h5>
+                                        
+                                            <ul class="list-group list-group-flush brand-list">
+                                                <li class="list-group-item"><a href="{% url 'women' 'Nike'%}" style='color:#64d8c1;'>Nike</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Gucci'%}" style='color:#64d8c1;'> Gucci</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Clarks'%}" style='color:#64d8c1;'>Clarks</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Bata'%}" style='color:#64d8c1;'>Bata</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Mochi'%}" style='color:#64d8c1;'>Mochi</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Red Tape'%}" style='color:#64d8c1;'>Red Tape</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' 'Catwalk'%}" style='color:#64d8c1;'>Catwalk</a></li>
+                                                <li class="list-group-item"><a href="{% url 'women' "Khadim's Cleo"%}" style='color:#64d8c1;'>Khadim's Cleo</a></li>
+                                                
+                                            </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            <div class="col-lg-9">
+                    <div class="row g-5">
+                        {% for i in products %}
+                           <div class="col-lg-4">
+                           <a href="{% url 'productdetail' i.id %}">
+                             <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style='height:15rem;'>
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                           
+                                             <p>${{i.discounted_price}}</p>
+                                            <p class='text-decoration-line-through'>${{i.selling_price}}</p>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                        {% endfor %}
+                       
+                        {% for i in wc %}
+                           <div class="col-lg-4">
+                           <a href="{% url 'productdetail' i.id %}">
+                             <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style='height:15rem'>
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                           
+                                             <p>${{i.discounted_price}}</p>
+                                            <p class='text-decoration-line-through'>${{i.selling_price}}</p>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                        {% endfor %}
+                        
+                        {% for i in wf %}
+                           <div class="col-lg-4">
+                           <a href="{% url 'productdetail' i.id %}">
+                             <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style='height:15rem'>
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                           
+                                             <p>${{i.discounted_price}}</p>
+                                            <p class='text-decoration-line-through'>${{i.selling_price}}</p>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                        {% endfor %}
+                        
+                        {% for i in ws %}
+                           <div class="col-lg-4">
+                           <a href="{% url 'productdetail' i.id %}">
+                             <div class="men-card">
+                                <div class="card" style="width: 15rem;">
+                                        <img src="/media/{{i.image}}" class="card-img-top img-fluid" alt="..." style='height:15rem'>
+                                        <div class="card-body text-center" style='line-height:15px;'>
+                                            <p class='card-text'>
+                                            {{i.product_name}}</p>
+                                            <p>{{i.brand}}</p>
+                                           
+                                             <p>${{i.discounted_price}}</p>
+                                            <p class='text-decoration-line-through'>${{i.selling_price}}</p>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                        {% endfor %}
+                       
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+

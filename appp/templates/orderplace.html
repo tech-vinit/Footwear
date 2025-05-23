@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <!-- Order Summary & Payment -->
+       <div class="container my-5 ">
+        <div class="row">
+           <div class="col-md-6 m-auto">
+            <h4 class="section-title">Order Summary</h4>
+            <div class="order-summary mb-4">
+                {% comment %} <p><strong>Shoes XYZ</strong> × 2 <span class="float-end">₹2,000</span></p>
+                <p><strong>Sneakers ABC</strong> × 1 <span class="float-end">₹1,200</span></p> {% endcomment %}
+
+                    {% for item in carts %}
+    <p><img src="/media/{{item.product.image}}" alt="" style="width: 100px; height: 100px;" class="img-fluid me-4"><strong>{{ item.product.product_name }}</strong> × {{ total_quantity}}
+       <span class="float-end">₹{{ item.product.discounted_price |floatformat:0 }}</span></p>
+    {% endfor %}
+                <hr>
+                <p class="fw-bold">Total <span class="float-end">₹{{total_price}}</span></p>
+            </div>
+
+            <h5 class="section-title">Payment Method</h5>
+            <div class="mb-3">
+                <select class="form-select">
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>UPI</option>
+                    <option>Cash on Delivery</option>
+                </select>
+            </div>
+
+            <a href="{% url 'order_successfull' %}" class="btn btn-checkout w-100">Place Order</a>
+        </div>
+        </div>
+       </div>
+
+
+{% endblock content %}
+
+
+

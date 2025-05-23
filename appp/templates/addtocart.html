@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <div class="addtocart">
+        <div class="container">
+           
+            <div class="container py-5">
+                 <p><span><a href="{% url 'home'%}" style='color:#88C8BC;'>Home</a></span>{{request.path}}</p>
+    <h1 class="mb-5">Your Shopping Cart</h1>
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Cart Items -->
+            {% for i in carts %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row cart-item mb-3">
+                        <div class="col-md-3">
+                            <img src="/media/{{i.product.image}}" alt="Product 1" class="img-fluid rounded object-fit-cover">
+                        </div>
+                        <div class="col-md-3">
+                            <h5 class="card-title">{{i.product.product_name}}</h5>
+                            <p class="text-muted">{{i.product.brand}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                <input style="max-width:100px" type="text" class="form-control  form-control-sm text-center quantity-input" value="1">
+                                <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <p class="fw-bold">${{i.product.discounted_price}}</p>
+                            <button class="btn btn-sm text-white">
+                                    <a href="{% url 'deletecart_item' i.id %}" class='btn btn-outline-danger'><i class="bi bi-trash"></i></a>
+                                </button>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                </div>
+            </div>
+            
+            {% endfor %}
+            <!-- Continue Shopping Button -->
+            <div class="text-start mb-4">
+                <a href="{% url 'allproducts'%}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <!-- Cart Summary -->
+            <div class="card cart-summary">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Order Summary</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Product Items</span>
+                        <span>{{total_quantity}}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Product Price</span>
+                        <span>${{total_price}}</span>
+                    </div>
+                   
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <strong>Total</strong>
+                        <strong>${{total_price}}</strong>
+                    </div>
+                        <a  href='{% url 'checkout' %}'class="btn btn-success w-100">Proceed to Checkout</a>
+                </div>
+            </div>
+            <!-- Promo Code -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Apply Promo Code</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter promo code">
+                        <button class="btn btn-outline-secondary" type="button">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+
