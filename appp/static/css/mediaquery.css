@@ -57,32 +57,4 @@
    }
 }
 
-.mens-img img{
-    width:100%;
-  }
-   .womens-img img{
-    width:100%;
-   
-  }
-@media(max-width:500px){
-.mens-img img{
-    width:454px;
-    
-  }
-  .womens-img img{
-    width:454px;
-  }
-  .banner-img img{
-  width: 100%;
-  
-}
-  body{
-  overflow-x: hidden;
-}
-[type=button], [type=reset], [type=submit], button {
-    width: 95%;
-}
-.form-control {
-    width: 95%;
-}
-}
+
